@@ -1,0 +1,48 @@
+<p>service-group-customer works!</p>
+
+<div *ngIf="errMessage" style="color: red; font-weight: bold;">
+  {{ errMessage }}
+</div>
+
+<div *ngFor="let group of customerGroup">
+
+  <table border="1" style="width: 100%; border-collapse: collapse;">
+    <tr>
+      <td colspan="5">
+        <b>{{ group.CustomerTypeId }} - {{ group.CustomterTypeName }}</b>
+      </td>
+    </tr>
+  </table>
+
+  <table border="1" style="width: 100%; border-collapse: collapse;">
+    <thead>
+      <tr>
+        <th style="width: 15%">Id</th>
+        <th style="width: 25%">Name</th>
+        <th style="width: 30%">Email</th>
+        <th style="width: 10%">Age</th>
+        <th style="width: 20%">#</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let cus of group.Customers">
+        <td>{{ cus.Id }}</td>
+        <td>{{ cus.Name }}</td>
+        <td>{{ cus.Email }}</td>
+        <td>{{ cus.Age }}</td>
+        <td>
+          <img
+            [src]="cus.Image"
+            [alt]="cus.Name"
+            width="80"
+            height="80"
+          >
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <br>
+
+</div>
